@@ -10,3 +10,7 @@ top of the crc.h file - this NIF wants CRC16 (polynomial 0x8005), and the
 crc.h file included here has been changed accordingly. The original code
 uses the CRC_CCITT standard.
 
+
+To build, simply run make.
+
+
