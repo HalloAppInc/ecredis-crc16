@@ -2,7 +2,7 @@ An Erlang NIF for generating CRC-16 (polynomial 0x8005).
 
 This NIF requires the very fine CRC code (in C) written by Michael Barr.
 See http://www.barrgroup.com/Embedded-Systems/How-To/CRC-Calculation-C-Code
-for more information. The code can be downloaded from [here[(http://www.netrino.com/code/crc.zip).
+for more information. The code can be downloaded from [here](http://www.netrino.com/code/crc.zip).
 
 
 Note: You can change the CRC standard used by changing the macro near the 
