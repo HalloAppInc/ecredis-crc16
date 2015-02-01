@@ -18,7 +18,6 @@ static ERL_NIF_TERM crc16_nif(ErlNifEnv* env,
                          ERL_NIF_LATIN1)) {
         return enif_make_badarg(env);
     }
-    crcInit();
     return enif_make_int(env, crcFast(x, strlen(x)));
 }
 static ErlNifFunc nif_funcs[] =

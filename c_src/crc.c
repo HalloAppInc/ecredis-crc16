@@ -137,6 +137,7 @@ crcSlow(unsigned char const message[], int nBytes)
 
 
 crc  crcTable[256];
+int  init = 1;
 
 
 /*********************************************************************
@@ -215,6 +216,11 @@ crcFast(unsigned char const message[], int nBytes)
     unsigned char  data;
 	int            byte;
 
+    /* Init the table, if it hasn't already been done. */
+    if (init) {
+        crcInit();
+        init = 0;
+    }
 
     /*
      * Divide the message by the polynomial, a byte at a time.
