@@ -4,9 +4,12 @@
 -on_load(init/0).
 
 init() ->
-    {ok, Cwd} = file:get_cwd(),
-    Niflib = Cwd ++ "/deps/crc16_nif/lib/crc16",
-    erlang:load_nif(Niflib, 0).
+    Path = os:getenv("NIFS_PATH"),
+    case Path of
+        false -> NifPath = ".";
+        _     -> NifPath = Path ++ "/crc16"
+    end,
+    erlang:load_nif(NifPath, 0).
 
 crc16(_Str) ->
     "NIF library not loaded".
