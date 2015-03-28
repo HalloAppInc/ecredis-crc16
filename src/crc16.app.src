@@ -1,7 +1,7 @@
 {application, crc16,
  [
   {description, "CRC 16 NIF"},
-  {vsn, "1"},
+  {vsn, "1.1"},
   {registered, []},
   {applications, [
                   kernel,
