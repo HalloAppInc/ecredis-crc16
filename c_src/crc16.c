@@ -6,7 +6,7 @@
 extern int crcFast(unsigned char const message[], int len);
 extern int crcInit();
 
-static ERL_NIF_TERM crc16_nif(ErlNifEnv* env,
+static ERL_NIF_TERM crc16(ErlNifEnv* env,
                           int argc,
                           ERL_NIF_TERM argv[])
 {
@@ -22,7 +22,7 @@ static ERL_NIF_TERM crc16_nif(ErlNifEnv* env,
 }
 static ErlNifFunc nif_funcs[] =
 {
-    {"crc16", 1, crc16_nif}
+    {"crc16", 1, crc16}
 };
 ERL_NIF_INIT(crc16, nif_funcs, NULL, NULL, NULL, NULL)
 
