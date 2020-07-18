@@ -1,4 +1,4 @@
--module(crc16).
+-module(ecredis_crc16).
 
 -export([init/0, crc16/1]).
 -on_load(init/0).

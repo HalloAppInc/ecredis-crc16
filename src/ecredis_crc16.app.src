@@ -1,6 +1,6 @@
-{application, crc16,
+{application, ecredis_crc16,
  [
-  {description, "CRC 16 NIF"},
+  {description, "CRC 16 NIF for ECREDIS"},
   {vsn, "1.1"},
   {registered, []},
   {applications, [

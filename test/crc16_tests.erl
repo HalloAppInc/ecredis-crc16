@@ -2,4 +2,4 @@
 -include_lib("eunit/include/eunit.hrl").
 
 crc16_test() ->
-	?assertEqual(16#bb3d, crc16:crc16("123456789")).
+	?assertEqual(12739, ecredis_crc16:crc16("123456789")).

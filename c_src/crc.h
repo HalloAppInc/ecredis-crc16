@@ -23,7 +23,7 @@
 /*
  * Select the CRC standard from the list that follows.
  */
-#define CRC16
+#define CRC16X
 
 
 #if defined(CRC_CCITT)
@@ -37,6 +37,18 @@ typedef unsigned short  crc;
 #define REFLECT_DATA		FALSE
 #define REFLECT_REMAINDER	FALSE
 #define CHECK_VALUE			0x29B1
+
+#elif defined(CRC16X)
+
+typedef unsigned short  crc;
+
+#define CRC_NAME			"CRC-16X"
+#define POLYNOMIAL			0x1021
+#define INITIAL_REMAINDER	0x0000
+#define FINAL_XOR_VALUE		0x0000
+#define REFLECT_DATA		FALSE
+#define REFLECT_REMAINDER	FALSE
+#define CHECK_VALUE			0x31C3
 
 #elif defined(CRC16)
 
