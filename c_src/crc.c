@@ -82,7 +82,7 @@ reflect(unsigned long data, unsigned char nBits)
 
 /*********************************************************************
  *
- * Function:    crcSlow()
+ * Function:    ecrcSlow()
  * 
  * Description: Compute the CRC of a given message.
  *
@@ -92,7 +92,7 @@ reflect(unsigned long data, unsigned char nBits)
  *
  *********************************************************************/
 crc
-crcSlow(unsigned char const message[], int nBytes)
+ecrcSlow(unsigned char const message[], int nBytes)
 {
     crc            remainder = INITIAL_REMAINDER;
 	int            byte;
@@ -133,16 +133,16 @@ crcSlow(unsigned char const message[], int nBytes)
      */
     return (REFLECT_REMAINDER(remainder) ^ FINAL_XOR_VALUE);
 
-}   /* crcSlow() */
+}   /* ecrcSlow() */
 
 
-crc  crcTable[256];
+crc  ecrcTable[256];
 int  init = 1;
 
 
 /*********************************************************************
  *
- * Function:    crcInit()
+ * Function:    ecrcInit()
  * 
  * Description: Populate the partial CRC lookup table.
  *
@@ -154,7 +154,7 @@ int  init = 1;
  *
  *********************************************************************/
 void
-crcInit(void)
+ecrcInit(void)
 {
     crc			   remainder;
 	int			   dividend;
@@ -192,25 +192,25 @@ crcInit(void)
         /*
          * Store the result into the table.
          */
-        crcTable[dividend] = remainder;
+        ecrcTable[dividend] = remainder;
     }
 
-}   /* crcInit() */
+}   /* ecrcInit() */
 
 
 /*********************************************************************
  *
- * Function:    crcFast()
+ * Function:    ecrcFast()
  * 
  * Description: Compute the CRC of a given message.
  *
- * Notes:		crcInit() must be called first.
+ * Notes:		ecrcInit() must be called first.
  *
  * Returns:		The CRC of the message.
  *
  *********************************************************************/
 crc
-crcFast(unsigned char const message[], int nBytes)
+ecrcFast(unsigned char const message[], int nBytes)
 {
     crc	           remainder = INITIAL_REMAINDER;
     unsigned char  data;
@@ -218,7 +218,7 @@ crcFast(unsigned char const message[], int nBytes)
 
     /* Init the table, if it hasn't already been done. */
     if (init) {
-        crcInit();
+        ecrcInit();
         init = 0;
     }
 
@@ -228,7 +228,7 @@ crcFast(unsigned char const message[], int nBytes)
     for (byte = 0; byte < nBytes; ++byte)
     {
         data = REFLECT_DATA(message[byte]) ^ (remainder >> (WIDTH - 8));
-        remainder = crcTable[data] ^ (remainder << 8);
+        remainder = ecrcTable[data] ^ (remainder << 8);
     }
 
     /*
@@ -236,4 +236,4 @@ crcFast(unsigned char const message[], int nBytes)
      */
     return (REFLECT_REMAINDER(remainder) ^ FINAL_XOR_VALUE);
 
-}   /* crcFast() */
+}   /* ecrcFast() */
