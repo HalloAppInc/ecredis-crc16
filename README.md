@@ -1,4 +1,7 @@
-An Erlang NIF for generating CRC-16 (polynomial 0x8005).
+An Erlang NIF for generating CRC-16 (polynomial 0x1021).
+Its used for the sharding of [redis cluster](https://redis.io/topics/cluster-spec)
+
+This code is forked and modified from https://github.com/building39/crc16_nif
 
 This NIF requires the very fine CRC code (in C) written by Michael Barr.
 See http://www.barrgroup.com/Embedded-Systems/How-To/CRC-Calculation-C-Code
