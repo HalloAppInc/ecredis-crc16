@@ -1,0 +1,6 @@
+.rebar/
+ebin/
+priv/
+c_src/*.o
+c_src/*.d
+compile_commands.json
